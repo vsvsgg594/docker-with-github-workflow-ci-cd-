@@ -40,7 +40,10 @@ jobs:
       run: ls -la
 
     - name: today date
-      run: date             
+      run: date   
+
+    - name: run my app
+      run: curl http://localhost:3000            
 
 
 
