@@ -1,0 +1,48 @@
+name: cicd
+on:
+   push: 
+     branches:
+       - main
+jobs:
+  node_install:
+    runs-on: ubuntu-latest
+    steps:
+    - name: download direactory
+      uses: actions/checkout@v4
+
+    - name: setup node js jobs
+      uses: actions/setup-node@v4
+
+      with: 
+          node-version: 20
+    - name: install npm
+      run: npm install 
+      working-directory: ./workflow3/node-app  
+
+    - name: check node  node-version
+      run: node node-version
+
+    - name: Build Docker images
+      run: docker build -t node-app:latest ./workflow3/node-app
+
+    - name: Run docker container
+      run: docker run -d -p 3000:3000 --name node-container node-app:latest     
+
+    - name: Start showing docker
+      run: docker ps  
+
+    - name: show docker container logs
+      run: docker logs node-container  
+      
+    - name: show current direactory
+      run: pwd
+    - name: show file
+      run: ls -la
+
+    - name: today date
+      run: date             
+
+
+
+
+
