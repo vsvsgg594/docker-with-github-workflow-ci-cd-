@@ -20,7 +20,7 @@ jobs:
       working-directory: ./node-app  
 
     - name: check node  node-version
-      run: node node-version
+      run:  node-version
 
     - name: Build Docker images
       run: docker build -t node-app:latest ./node-app
