@@ -17,13 +17,13 @@ jobs:
           node-version: 20
     - name: install npm
       run: npm install 
-      working-directory: ./workflow3/node-app  
+      working-directory: ./node-app  
 
     - name: check node  node-version
       run: node node-version
 
     - name: Build Docker images
-      run: docker build -t node-app:latest ./workflow3/node-app
+      run: docker build -t node-app:latest ./node-app
 
     - name: Run docker container
       run: docker run -d -p 3000:3000 --name node-container node-app:latest     
@@ -33,7 +33,7 @@ jobs:
 
     - name: show docker container logs
       run: docker logs node-container  
-      
+
     - name: show current direactory
       run: pwd
     - name: show file
