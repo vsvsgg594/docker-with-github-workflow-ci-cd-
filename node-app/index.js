@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
 
     res.end(
         JSON.stringify({
-            message: "Hello from Node.js application",
+            message: "Hello from Node.js application Testing Node js",
             status: "success",
         })
     );
